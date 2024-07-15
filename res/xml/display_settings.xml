@@ -44,6 +44,15 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+            android:key="display_category"
+            android:title="@string/display_category_title">
+        <Preference
+            android:key="edge_detection_preference"
+            android:title="Edge Detection"
+            android:summary="Manage Edge Overlays" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/category_name_lock_display">
 
         <Preference

@@ -19,6 +19,8 @@ package com.android.settings;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.BrightnessLevelPreferenceController;
@@ -32,6 +34,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settings.display.EdgeDetectionControl;
 
 import lineageos.hardware.LineageHardwareManager;
 
@@ -64,6 +67,11 @@ public class DisplaySettings extends DashboardFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        Preference edgeDetectionPreference = findPreference("edge_detection_preference");
+        if (edgeDetectionPreference != null) {
+            EdgeDetectionControl.addEdgeDetectionPreference(getActivity(), edgeDetectionPreference);
+        }
     }
 
     @Override
